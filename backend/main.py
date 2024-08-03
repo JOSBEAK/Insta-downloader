@@ -21,6 +21,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+app.mount("/", StaticFiles(directory="/app/frontend/.next", html=True), name="static")
 
 class VideoRequest(BaseModel):
     url: str

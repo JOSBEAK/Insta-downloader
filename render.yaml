@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: instagram-video-downloader
+    runtime: docker
+    plan: free
+    repo: https://github.com/yourusername/your-repo-name.git
+    region: oregon
+    branch: main
+    buildCommand: docker build -t instagram-video-downloader .
+    startCommand: docker run -p $PORT:8000 instagram-video-downloader
+    envVars:
+      - key: RAPIDAPI_KEY
+        sync: false
+      - key: RAPIDAPI_HOST
+        sync: false
+      - key: RAPIDAPI_ENDPOINT
+        sync: false
